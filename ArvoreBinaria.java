@@ -19,6 +19,11 @@ public class ArvoreBinaria {
         System.out.println();
     }
     
+    void removeNodo(Integer v){
+        if (this.raiz != null) 
+           this.raiz = this.raiz.remove(this.raiz, v);
+    }
+    
     void insereNodo(Integer v){
         if (this.raiz == null)
             this.raiz = new NodoArvore(v, null, null);

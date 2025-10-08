@@ -9,7 +9,13 @@ public class TestaNodoArvore {
           arv.insereNodo(28);
           arv.insereNodo(25);
           arv.insereNodo(30);
+          arv.insereNodo(23);
+          arv.insereNodo(26);
         
+          arv.imprimePre();
+          
+          arv.removeNodo(28);
+          arv.imprimePre();
      //   NodoArvore a = new NodoArvore(28, null, null);
         
     //    a = a.insere(a, 25);
