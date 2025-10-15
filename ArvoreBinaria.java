@@ -9,6 +9,14 @@ public class ArvoreBinaria {
         this.raiz = null;
     }
     
+    int altura(){
+        if (this.raiz == null)
+            return -1; 
+        else
+            return this.raiz.altura(raiz);
+    
+    }
+    
     void imprimePre(){
         this.raiz.imprimePre(raiz);
         System.out.println();

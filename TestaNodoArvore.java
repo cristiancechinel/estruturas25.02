@@ -5,41 +5,16 @@ public class TestaNodoArvore {
 
     public static void main(String[] args){
     
-          ArvoreBinaria arv = new ArvoreBinaria();
-          arv.insereNodo(28);
-          arv.insereNodo(25);
-          arv.insereNodo(30);
-          arv.insereNodo(23);
-          arv.insereNodo(26);
+        NodoAVL a = new NodoAVL(10, null, null);
+        a = a.insere(a, 8);
+        a = a.insere(a, 9);
+        a.imprimePre(a);
         
-          arv.imprimePre();
-          
-          arv.removeNodo(28);
-          arv.imprimePre();
-     //   NodoArvore a = new NodoArvore(28, null, null);
+        a = a.rotacaoEsquerdaDireita(a);
+        System.out.println();
+        a.imprimePre(a);        
         
-    //    a = a.insere(a, 25);
-    //    a = a.insere(a, 30);
-        
-        
-    //    a.imprimePre(a);
-//        System.out.println();
-
-  //      a.imprimeSimetrico(a);
-    //    System.out.println();
-        
-        
-        //NodoArvore a2 = new NodoArvore(29, null, null);
-        //NodoArvore a4 = new NodoArvore(30, a1, a2);
-
-        //NodoArvore a3 = new NodoArvore(70, null, null);
-       // NodoArvore a5 = new NodoArvore(60, null, a3);
-        
-      //  NodoArvore a6 = new NodoArvore(50, a4, a5);
-        
-      //  a6.imprimePre(a6);
-
-        
+ 
     }
     
 }

@@ -1,21 +1,52 @@
 
 package com.mycompany.estruturas202502;
 
-public class NodoArvore {
+public class NodoAVL {
     
     private Integer valor;
-    private NodoArvore esquerda;
-    private NodoArvore direita;
+    private NodoAVL esquerda;
+    private NodoAVL direita;
 
-    NodoArvore(Integer v, NodoArvore e, NodoArvore d){
+    NodoAVL(Integer v, NodoAVL e, NodoAVL d){
         this.valor = v;
         this.esquerda = e;
         this.direita = d;
     }
     
-    NodoArvore insere(NodoArvore atual, Integer v){
+    
+    NodoAVL rotacaoEsquerdaDireita(NodoAVL atual){
+        atual.esquerda = rotacaoEsquerda(atual.esquerda);
+        atual = rotacaoDireita(atual);
+        return atual;
+    }
+    
+    NodoAVL rotacaoDireitaEsquerda(NodoAVL atual){
+        atual.direita = rotacaoDireita(atual.direita);
+        atual = rotacaoEsquerda(atual);
+        return atual;
+    }
+    
+    
+    NodoAVL rotacaoEsquerda(NodoAVL atual){
+        NodoAVL temp = atual.direita;
+        atual.direita = temp.esquerda;
+        temp.esquerda = atual; 
+        return temp;
+    }
+    
+    NodoAVL rotacaoDireita(NodoAVL atual){
+        NodoAVL temp = atual.esquerda; 
+        atual.esquerda = temp.direita; 
+        temp.direita = atual;
+        return temp;
+    }
+    
+    
+    
+    
+    NodoAVL insere(NodoAVL atual, Integer v){
         if (atual == null)
-            atual = new NodoArvore(v, null, null);
+            atual = new NodoAVL(v, null, null);
         else if (v < atual.valor)//inserção esquerda
             atual.esquerda = insere(atual.esquerda, v);
         else //inserção direita
@@ -24,7 +55,7 @@ public class NodoArvore {
    
     }
     
-    NodoArvore remove(NodoArvore atual, Integer v){
+    NodoAVL remove(NodoAVL atual, Integer v){
         if (atual == null) return null;//não existe
         if (v < atual.valor)
             atual.esquerda = remove(atual.esquerda, v);
@@ -39,7 +70,7 @@ public class NodoArvore {
                     return atual.direita;
             else {
                //tem dois filhos 
-               NodoArvore temp = atual.esquerda;
+               NodoAVL temp = atual.esquerda;
                while (temp.direita != null){
                    temp = temp.direita;
                }
@@ -62,7 +93,7 @@ public class NodoArvore {
     }
     
     
-    int altura(NodoArvore a){
+    int altura(NodoAVL a){
         
         if (a == null) 
             return -1;
@@ -70,7 +101,7 @@ public class NodoArvore {
             return 1 + max(altura(a.esquerda), altura(a.direita));
     }
     
-    void imprimeSimetrico(NodoArvore a){
+    void imprimeSimetrico(NodoAVL a){
         if (a != null){
             System.out.print("<");
             imprimeSimetrico(a.esquerda);
@@ -82,7 +113,7 @@ public class NodoArvore {
 
 
 
-    void imprimePre(NodoArvore a){
+    void imprimePre(NodoAVL a){
         if (a != null){
             System.out.print("<");
             System.out.print(a.valor);
