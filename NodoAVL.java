@@ -47,10 +47,27 @@ public class NodoAVL {
     NodoAVL insere(NodoAVL atual, Integer v){
         if (atual == null)
             atual = new NodoAVL(v, null, null);
-        else if (v < atual.valor)//inserção esquerda
+        else if (v < atual.valor){//inserção esquerda
             atual.esquerda = insere(atual.esquerda, v);
-        else //inserção direita
+            //verificar desbalanceamento
+            if (altura(atual.esquerda) - altura(atual.direita) == 2){
+                if (v < atual.esquerda.valor){//rotacao simples direita
+                    atual = rotacaoDireita(atual);
+                    System.out.println("rotacionou para direita em");
+                }
+                else //rotacao dupla esquerda direita
+                    atual = rotacaoEsquerdaDireita(atual);   
+            }
+        }
+        else{ //inserção direita
             atual.direita = insere(atual.direita, v);
+            if (altura(atual.esquerda) - altura(atual.direita) == -2){
+                if (v > atual.direita.valor)//rotacao simples esquerda
+                    atual = rotacaoEsquerda(atual);
+                else //rotacao dupla direita esquerda
+                    atual = rotacaoDireitaEsquerda(atual);
+            }
+        }
         return atual;
    
     }
