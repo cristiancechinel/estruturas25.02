@@ -74,10 +74,24 @@ public class NodoAVL {
     
     NodoAVL remove(NodoAVL atual, Integer v){
         if (atual == null) return null;//não existe
-        if (v < atual.valor)
+        if (v < atual.valor){
             atual.esquerda = remove(atual.esquerda, v);
-        else if (v > atual.valor)
+            if (altura(atual.esquerda) - altura(atual.direita) == -2)
+                if (altura(atual.direita.esquerda) -
+                    altura(atual.direita.direita) == -1) 
+                    atual = rotacaoEsquerda(atual);
+                else
+                    atual = rotacaoDireitaEsquerda(atual);
+        }
+        else if (v > atual.valor){
             atual.direita = remove(atual.direita, v);
+            if (altura(atual.esquerda) - altura(atual.direita) == 2)
+                if (altura(atual.esquerda.esquerda) - 
+                    altura(atual.esquerda.direita) == 1)
+                    atual = rotacaoDireita(atual);
+                else
+                    atual = rotacaoEsquerdaDireita(atual);
+        }
         else{//encontrou o elemento sem filhos
             if (atual.esquerda == null && atual.direita == null)
                 return null;

@@ -5,16 +5,19 @@ public class TestaNodoArvore {
 
     public static void main(String[] args){
     
-        NodoAVL a = new NodoAVL(8, null, null);
-        a = a.insere(a, 10);
+        ArvoreAVL a = new ArvoreAVL();
+        a.insereNodo(10);
+        a.insereNodo(15);
+        a.insereNodo(13);
+
+        a.imprimePre();
         
-        a = a.insere(a, 9);
-       
-        //a = a.insere(a, 4);
+        a.insereNodo(17);
+        a.imprimePre();
         
-        a.imprimePre(a);        
-        
+        a.removeNodo(10);
  
+        a.imprimePre();
     }
     
 }
