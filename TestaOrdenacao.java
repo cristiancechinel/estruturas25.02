@@ -13,11 +13,11 @@ public class TestaOrdenacao {
     }
     public static void main(String[] args){
     
-        int vet[] = {80, 100, 50, 30, 16};
+        int vet[] = {80, 1, 15, 3, 65, 90};
         Ordenar o = new Ordenar();
         printVet(vet); 
 
-        o.insertion(vet);
+        o.mergeSort(vet, 0, 5);
         printVet(vet); 
              
         
