@@ -12,6 +12,10 @@ public class Grafo {
                 mat[i][j] = 0;
     } 
     
+    int getV(){
+        return this.V;
+    }
+    
     boolean adjacente(int i, int j){
         return (mat[i][j] == 1) && (mat[j][i] == 1);
     }
