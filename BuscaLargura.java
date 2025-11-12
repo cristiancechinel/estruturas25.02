@@ -26,15 +26,64 @@ public class BuscaLargura {
             dist[i] = -1;
             pai[i]  = -1;
         }
+        //inicializa origem
         cor[origem] = CINZA; dist[origem] = 0; 
         
         FilaEncadeada fila = new FilaEncadeada();
         fila.insereFinal(origem);
         
-        while fila.filavazia()
+        while (!fila.filaVazia()){
+            int u = fila.removeInicio();
+            for (int v = 0; v < this.g.getV(); v++)
+                if (this.g.adjacente(u, v))
+                    if (cor[v] == BRANCO){
+                        cor[v] = CINZA;
+                        dist[v] = dist[u] + 1;
+                        pai[v] = u;
+                        fila.insereFinal(v);
+                    }
+            cor[u] = PRETO;   
+        }
+    }
+    
+    void imprimeCaminho(int destino){
+    
+        PilhaEncadeada pi = new PilhaEncadeada();
+        pi.empilhar(destino);
+        int i = destino;
+        while (pai[i] != -1){
+            //System.out.print(pai[i] + " -> ");
+            pi.empilhar(pai[i]);
+            i = pai[i];
+        }
+        
+        while (!pi.vazia()){
+            System.out.print(pi.desempilhar() + " -> ");
+        }
+        System.out.println();
+        
+    }
+    
+    void imprimeVetores(){
+    
+        System.out.println("Cores");
+        for (int i = 0; i < this.g.getV(); i++)
+            System.out.print(cor[i] + " | ");
+        System.out.println();
+
+        System.out.println("Pai");
+        for (int i = 0; i < this.g.getV(); i++)
+            System.out.print(pai[i] + " | ");
+        System.out.println();
+        
+        System.out.println("Distância");
+        for (int i = 0; i < this.g.getV(); i++)
+            System.out.print(dist[i] + " | ");
+        System.out.println();
 
         
     
     }
+    
     
 }

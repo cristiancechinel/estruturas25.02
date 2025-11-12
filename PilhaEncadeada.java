@@ -14,6 +14,12 @@ public class PilhaEncadeada {
         lista = new ListaDuplamenteEncadeada();
     }
     
+    boolean vazia(){
+        return lista.listaVazia();
+    
+    }
+    
+    
     void empilhar(Integer valor){
         lista.insereUltimo(valor);
     }

@@ -15,6 +15,12 @@ public class TestaGrafo {
         
         g.imprime();
         
+        BuscaLargura bl = new BuscaLargura(g);
+        bl.busca(0);
+        bl.imprimeVetores();
+        
+        bl.imprimeCaminho(4);
+        
     }
     
 }
