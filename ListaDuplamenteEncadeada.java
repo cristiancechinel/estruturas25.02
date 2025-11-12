@@ -12,6 +12,10 @@ public class ListaDuplamenteEncadeada {
         inicio = ultimo = null;
     }
     
+    boolean listaVazia(){
+       return inicio == null;
+    }
+    
     void imprimeLista(){
         for (Nodo temp = inicio; temp != null; temp = temp.proximo)
             System.out.print(temp.dado + " ->");

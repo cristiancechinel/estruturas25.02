@@ -19,9 +19,21 @@ public class BuscaLargura {
         pai  = new int[g.getV()];
     }
     
-    void busca(int origem){
-    
-    
+    void busca(int origem){     
+        //inicializa vetores
+        for (int i = 0; i < g.getV(); i++){
+            cor[i] = BRANCO;
+            dist[i] = -1;
+            pai[i]  = -1;
+        }
+        cor[origem] = CINZA; dist[origem] = 0; 
+        
+        FilaEncadeada fila = new FilaEncadeada();
+        fila.insereFinal(origem);
+        
+        while fila.filavazia()
+
+        
     
     }
     

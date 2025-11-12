@@ -15,6 +15,10 @@ public class FilaEncadeada {
         lista.insereUltimo(valor);
     }
     
+    boolean filaVazia(){
+        return lista.listaVazia();
+    }
+    
     Integer removeInicio(){
         return lista.removeInicio();
     }
