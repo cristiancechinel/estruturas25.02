@@ -19,6 +19,7 @@ public class TestaGrafo {
         BuscaProfundidade bp = new BuscaProfundidade(g);
         bp.dfs();
         bp.imprime();
+        bp.imprime();
         
         //BuscaLargura bl = new BuscaLargura(g);
         //bl.busca(0);
