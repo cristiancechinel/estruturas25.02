@@ -9,17 +9,22 @@ public class TestaGrafo {
         Grafo g = new Grafo(5);
         g.insereAresta(0, 1);
         g.insereAresta(0, 2);
+        g.insereAresta(1, 2);
         g.insereAresta(1, 3);
         g.insereAresta(2, 3);
         g.insereAresta(3, 4);
         
         g.imprime();
         
-        BuscaLargura bl = new BuscaLargura(g);
-        bl.busca(0);
-        bl.imprimeVetores();
+        BuscaProfundidade bp = new BuscaProfundidade(g);
+        bp.dfs();
+        bp.imprime();
         
-        bl.imprimeCaminho(4);
+        //BuscaLargura bl = new BuscaLargura(g);
+        //bl.busca(0);
+        //bl.imprimeVetores();
+        
+        //bl.imprimeCaminho(4);
         
     }
     

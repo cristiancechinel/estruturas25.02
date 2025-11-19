@@ -57,6 +57,7 @@ public class BuscaLargura {
             i = pai[i];
         }
         
+        //desempilhar para imprimir na ordem correta
         while (!pi.vazia()){
             System.out.print(pi.desempilhar() + " -> ");
         }
